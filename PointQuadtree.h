@@ -15,7 +15,6 @@ private:
     CImg<float> imagen;
     Nodo * m_pRoot;
     ofstream file;
-    std::unordered_map<string,bool> v;
 public:
     PointQuadtree(std::string name,CImg<float> & img){
 	     imagen= img;
@@ -51,13 +50,6 @@ public:
     }
 
     bool Insert(int x1,int y1,int x2,int y2){
-      string l=to_string(x1)+"-"+to_string(y1)+"-"+to_string(x2)+"-"+to_string(y2);
-      if(v[l]==1)
-      {
-        return 1;
-      }
-      else
-      v[l]=1;
       if(x2-x1<=1 && y2-y1<=1)
       {
           int r = imagen(x1,y1,0);
